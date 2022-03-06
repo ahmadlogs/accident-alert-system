@@ -6,6 +6,7 @@
 #include <math.h>
 
 #include<Wire.h>
+//must add i2c lcd address use i2c-scanner.ino file
 LiquidCrystal_I2C lcd(0x27, 16, 2);
 //--------------------------------------------------------------
 //emergency phone number with country code
@@ -209,21 +210,10 @@ void Impact()
   if (magnitude >= sensitivity) //impact detected
   {
     updateflag=1;
-
-    //--------------------------------------------------------------
-    //double X = xaxis - 512; // adjust xaxis reading to +/- 512
-    //double Y = yaxis - 512; // adjust yaxis reading to +/- 512
-    //double X = acos((double) deltx / magnitude);
-    //double Y = acos((double) delty / magnitude);
-    //Serial.print("X = "); Serial.print(X); Serial.print("Y = "); Serial.println(Y);
-    //Serial.println("****************************");
-    //angle = (atan2(Y,X) * 180)/PI; // use atan2 to calculate angle and convert radians to degrees
-    //angle += 180;
-    //--------------------------------------------------------------
     // reset anti-vibration counter
     vibration = devibrate;
-    //--------------------------------------------------------------
   }
+  //NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
   else
   {
     //if (magnitude > 15)
